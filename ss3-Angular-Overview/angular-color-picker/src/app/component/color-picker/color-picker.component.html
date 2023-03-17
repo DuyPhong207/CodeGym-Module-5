@@ -1,0 +1,5 @@
+<p>color-picker works!</p>
+<div [ngStyle]="{'background-color': color.value}"></div>
+<label>Enter color</label>
+<input type="text" #name [value]="color.value">
+<button (click)="chooseColor(name.value)">Save</button>
