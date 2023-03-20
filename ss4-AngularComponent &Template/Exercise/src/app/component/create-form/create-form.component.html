@@ -1,0 +1,31 @@
+<form [formGroup]="createForm" (ngSubmit)="save()">
+  <p>Email:</p>
+  <input type="text" formControlName="email">
+  <span style="color: red" *ngIf="createForm.controls.email.hasError('required')
+    && createForm.controls.email.dirty")>Vui lòng nhập email</span>
+  <span style="color: red" *ngIf="createForm.controls.email.hasError('email')
+    &&createForm.controls.email.dirty">Email không đúng định dạng</span><br>
+  <p>Password:</p>
+  <input type="password" formControlName="password">
+  <span style="color: red" *ngIf="createForm.controls.password.hasError('minlength')
+    &&createForm.controls.password.dirty">Mật khẩu phải dài hơn 6 kí tự</span><br>
+  <br>
+  <p>Confirm Password:</p>
+  <input type="password" formControlName="confirmPassword">
+<!--  <span style="color: red" *ngIf="createForm.controls.confirmPassword.hasError('checkConfirmPass')-->
+<!--    &&createForm.controls.confirmPassword.dirty">Không trùng với password</span><br>-->
+  <p>Age:</p>
+  <input type="date" formControlName="age">
+  <span style="color: red" *ngIf="createForm.controls.age.hasError('required')
+    &&createForm.controls.age.dirty">Vui lòng nhập ngày sinh</span><br>
+  <p>gender:</p>
+  <span>Male</span><input type="radio" formControlName="gender" value="male">
+  <span>Female</span><input type="radio" formControlName="gender" value="Female">
+  <span style="color: red" *ngIf="createForm.controls.gender.hasError('required')
+    &&createForm.controls.gender.dirty">Vui lòng chọn giới tính</span><br>
+  <p>Phone:</p>
+  <input type="text" formControlName="phone"><br>
+  <span style="color: red" *ngIf="createForm.controls.phone.hasError('pattern')
+    &&createForm.controls.phone.dirty">Số điện thoại không đúng định dạng</span><br>
+  <input type="submit" value="create"><br>
+</form>
