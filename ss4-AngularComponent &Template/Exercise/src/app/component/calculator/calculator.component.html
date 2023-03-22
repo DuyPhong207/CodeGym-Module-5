@@ -1,34 +1,12 @@
-<input class="result" name="result" type="text">
+<h1>Calculator</h1>
+<label>Enter number 1:</label>
+<input type="number" #firstNum><br>
+<label>Enter number 2:</label>
+<input type="number" #secondNum><br>
+<button (click)="addition(firstNum.value, secondNum.value)">addition</button>
+<button (click)="subtraction(firstNum.value, secondNum.value)">subtraction</button>
+<button (click)="multiplication(firstNum.value, secondNum.value)">multiplication</button>
+<button (click)="division(firstNum.value, secondNum.value)">division</button>
 
-<table>
-    <tr>
-      <td><input type="button" class="button" value="7" ></td>
-      <td><input type="button" class="button" value="8" ></td>
-      <td><input type="button" class="button" value="9" ></td>
-      <td><input type="button" class="button" value="/" ></td>
-    <tr>
-      <td><input type="button" class="button" value="4"></td>
-      <td><input type="button" class="button" value="5" ></td>
-      <td><input type="button" class="button" value="6" ></td>
-      <td><input type="button" class="button" value="*" ></td>
-    </tr>
-    <tr>
-      <td><input type="button" class="button" value="1" ></td>
-      <td><input type="button" class="button" value="2" ></td>
-      <td><input type="button" class="button" value="3" ></td>
-      <td><input type="button" class="button" value="+" ></td>
-    </tr>
-    <tr>
-      <td><input type="button" class="button" value="0" ></td>
-      <td><input type="button" class="button" value="00"></td>
-      <td><input type="button" class="button" value="." ></td>
-      <td><input type="button" class="button" value="-" ></td>
-    </tr>
-    <tr>
-      <td><input type="button" class="button" value="AC" ></td>
-      <td><input type="button" class="button" value="&#x21E6;"></td>
-      <td colspan='2' ><input type="button" class="button equal" value="="></td>
+<p>result: {{result}}</p>
 
-    </tr>
-
-  </table>
