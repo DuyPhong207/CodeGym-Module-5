@@ -5,12 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerListComponent } from './component/customer/customer-list/customer-list.component';
 import { CustomerCreateComponent } from './component/customer/customer-create/customer-create.component';
+import { HeaderComponent } from './component/header/header.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { CustomerUpdateComponent } from './component/customer/customer-update/customer-update.component';
+import { FacilityUpdateComponent } from './component/facility/facility-update/facility-update.component';
+import { FacilityListComponent } from './component/facility/facility-list/facility-list.component';
+import { FacilityCreateComponent } from './component/facility/facility-create/facility-create.component';
+import { ContractCreateComponent } from './component/contract/contract-create/contract-create.component';
+import { ContractListComponent } from './component/contract/contract-list/contract-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    HeaderComponent,
+    FooterComponent,
+    CustomerUpdateComponent,
+    FacilityUpdateComponent,
+    FacilityListComponent,
+    FacilityCreateComponent,
+    ContractCreateComponent,
+    ContractListComponent
   ],
   imports: [
     BrowserModule,
