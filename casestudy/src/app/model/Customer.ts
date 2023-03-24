@@ -2,7 +2,7 @@ export interface Customer {
   id: number;
   typeId: number;
   name: string;
-  dateOfBirth: Date;
+  dateOfBirth: string;
   idCard: string;
   phone: string;
   email: string;

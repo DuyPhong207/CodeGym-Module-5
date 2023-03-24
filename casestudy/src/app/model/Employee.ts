@@ -4,7 +4,7 @@ export interface Employee {
   levelId: number;
   divisionId: number;
   name: string;
-  dateOfBirth: Date;
+  dateOfBirth: string;
   salary: string;
   idCard: string;
   phone: string;

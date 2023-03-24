@@ -13,6 +13,9 @@ import { FacilityListComponent } from './component/facility/facility-list/facili
 import { FacilityCreateComponent } from './component/facility/facility-create/facility-create.component';
 import { ContractCreateComponent } from './component/contract/contract-create/contract-create.component';
 import { ContractListComponent } from './component/contract/contract-list/contract-list.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EmployeeCreateComponent } from './component/employee/employee-create/employee-create.component';
+import { EmployeeListComponent } from './component/employee/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +29,16 @@ import { ContractListComponent } from './component/contract/contract-list/contra
     FacilityListComponent,
     FacilityCreateComponent,
     ContractCreateComponent,
-    ContractListComponent
+    ContractListComponent,
+    EmployeeCreateComponent,
+    EmployeeListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
