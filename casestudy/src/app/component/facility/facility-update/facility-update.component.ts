@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {RentType} from '../../../model/RentType';
-import {CustomerService} from '../../../service/customer/customer.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FacilityService} from '../../../service/facility/facility.service';
