@@ -1,10 +1,12 @@
+import {RentType} from './RentType';
+
 export interface Facility {
   id: number;
   name: string;
   area: number;
-  numOfFloor: number;
+  numberOfFloor: number;
   maxOfPeople: number;
-  cost: string;
-  rentTypeId: string;
+  cost: number;
+  rentType: RentType;
   status: string;
 }

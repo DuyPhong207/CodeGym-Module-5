@@ -1,1 +1,35 @@
-<p>contract-list works!</p>
+<div class="container">
+  <h1 style="text-align: center">Contract List</h1>
+
+  <button routerLink="/contract/create" class="btn btn-primary">Create</button>
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Employee</th>
+      <th scope="col">Facility</th>
+      <th scope="col">Day Start</th>
+      <th scope="col">DayEnd</th>
+      <th scope="col">Deposit</th>
+      <th scope="col">Total Pay</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contract of contracts">
+      <th scope="row">{{contract.id}}</th>
+      <td>{{contract.customer.name}}</td>
+      <td>{{contract.employee.name}}</td>
+      <td>{{contract.facility.name}}</td>
+      <td>{{contract.dayStart}}</td>
+      <td>{{contract.dayEnd}}</td>
+      <td>{{contract.deposit}}</td>
+      <td>{{contract.totalPay}}</td>
+      <td><button [routerLink]="['/contract/edit', contract.id]" class="btn btn-info">Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

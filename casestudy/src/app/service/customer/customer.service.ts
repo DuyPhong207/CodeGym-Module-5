@@ -1,32 +1,29 @@
 import { Injectable } from '@angular/core';
 import {Customer} from '../../model/Customer';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  customers: Customer[] = [];
-  constructor() {
-    this.customers.push({id: 1, typeId: 1, name: 'Phong', dateOfBirth: '20-01-2001',
-      idCard: '123456789', phone: '0123456789', email: '1234@gmail.com', address: 'Da Nang'});
-    this.customers.push({id: 2, typeId: 3, name: 'Phong', dateOfBirth: '20-01-2001',
-      idCard: '123456789', phone: '0123456789', email: '1234@gmail.com', address: 'Da Nang'});
-    this.customers.push({id: 3, typeId: 2, name: 'Phong', dateOfBirth: '20-01-2001',
-      idCard: '123456789', phone: '0123456789', email: '1234@gmail.com', address: 'Da Nang'});
-    this.customers.push({id: 4, typeId: 2, name: 'Phong', dateOfBirth: '20-01-2001',
-      idCard: '123456789', phone: '0123456789', email: '1234@gmail.com', address: 'Da Nang'});
-    this.customers.push({id: 5, typeId: 1, name: 'Phong', dateOfBirth: '20-01-2001',
-      idCard: '123456789', phone: '0123456789', email: '1234@gmail.com', address: 'Da Nang'});
+  constructor(private httpClient: HttpClient) {
   }
-  findAll(): Customer[] {
-    return this.customers;
+  findAll(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>('http://localhost:3000/customers');
   }
 
-  addCustomer(even: any) {
-    this.customers.push(even);
+  addCustomer(even: any): Observable<any> {
+    return this.httpClient.post<Customer>('http://localhost:3000/customers', even);
+  }
+  editCustomer(customer: any): Observable<any> {
+    return this.httpClient.patch<Customer>('http://localhost:3000/customers/' + customer.id, customer);
+  }
+  deleteCustomer(id: any): Observable<any> {
+    return this.httpClient.delete<Customer>('http://localhost:3000/customers/' + id);
   }
 
-  findById(value: number): Customer {
-    return this.customers.filter(customer => customer.id === value)[0];
+  findById(id: any): Observable<Customer> {
+    return this.httpClient.get<Customer>('http://localhost:3000/customers/' + id);
   }
 }

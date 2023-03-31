@@ -1,14 +1,13 @@
-<app-header></app-header>
 <div class="container">
   <h1 style="text-align: center">Form Edit Customer</h1>
-  <form [formGroup]="editCustomerForm" (ngSubmit)="editCustomer()">
+  <form [formGroup]="editCustomerForm" (ngSubmit)="editCustomer()" *ngIf="customer">
     <div class="form-group">
       <input type="hidden" formControlName="id" class="form-control">
     </div>
     <div class="form-group">
       <label >Customer Type</label>
-      <select formControlName="typeId" class="form-select" aria-label="Default select example">
-        <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+      <select formControlName="customerType" class="form-select" [compareWith]="compareFn">
+        <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">{{customerType.name}}</option>
       </select>
     </div>
     <div class="form-group">
@@ -35,7 +34,34 @@
       <label>Address</label>
       <input formControlName="address" type="text" class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div style="margin-top: 16px" class="form-group">
+      <button type="submit" class="btn btn-primary">Save</button>
+
+      <!-- Button trigger modal -->
+      <button style="margin-left: 16px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Delete
+      </button>
+    </div>
   </form>
 </div>
+
+<!--Modal delete customer-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="customer">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete customer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Customer ID: {{customer.id}}</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="deleteCustomerById()" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 

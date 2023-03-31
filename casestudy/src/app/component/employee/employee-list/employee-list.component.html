@@ -1,6 +1,8 @@
-<app-header></app-header>
 <div class="container">
   <h1 style="text-align: center">Employee List</h1>
+
+  <button routerLink="/employee/create" class="btn btn-primary">Create</button>
+
   <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -21,20 +23,9 @@
     <tr *ngFor="let employee of employees">
       <th scope="row">{{employee.id}}</th>
       <td>{{employee.name}}</td>
-      <td *ngIf="employee.positionId == 1">Nhân Viên</td>
-      <td *ngIf="employee.positionId == 2">Giám sát</td>
-      <td *ngIf="employee.positionId == 3">Quản lý</td>
-      <td *ngIf="employee.positionId == 4">Phó giám đốc</td>
-      <td *ngIf="employee.positionId == 5">Giám đốc</td>
-
-      <td *ngIf="employee.levelId == 1">Cao Đẳng</td>
-      <td *ngIf="employee.levelId == 2">Đại Học</td>
-      <td *ngIf="employee.levelId == 3">Thạc Sĩ</td>
-
-      <td *ngIf="employee.divisionId == 1">An ninh</td>
-      <td *ngIf="employee.divisionId == 2">Kĩ thuật</td>
-      <td *ngIf="employee.divisionId == 3">Marketing</td>
-
+      <td>{{employee.position.name}}</td>
+      <td>{{employee.level.name}}</td>
+      <td>{{employee.division.name}}</td>
       <td>{{employee.salary}}</td>
       <td>{{employee.dateOfBirth}}</td>
       <td>{{employee.idCard}}</td>

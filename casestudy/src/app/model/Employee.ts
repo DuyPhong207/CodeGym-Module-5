@@ -1,8 +1,12 @@
+import {Level} from './Level';
+import {Division} from './Division';
+import {Position} from './Position';
+
 export interface Employee {
   id: number;
-  positionId: number;
-  levelId: number;
-  divisionId: number;
+  position: Position;
+  level: Level;
+  division: Division;
   name: string;
   dateOfBirth: string;
   salary: string;

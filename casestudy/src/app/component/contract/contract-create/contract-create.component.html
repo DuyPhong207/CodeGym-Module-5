@@ -1,1 +1,43 @@
-<p>contract-create works!</p>
+<div class="container" *ngIf="facilities">
+  <h1 style="text-align: center">Form Create Customer</h1>
+  <form [formGroup]="contractForm" (ngSubmit)="addContract()">
+    <div class="form-group">
+      <input type="hidden" formControlName="id" class="form-control">
+    </div>
+    <div class="form-group">
+      <label >Customer</label>
+      <select formControlName="customer" class="form-select" aria-label="Default select example">
+        <option *ngFor="let customer of customers" [ngValue]="customer">ID: {{customer.id}} - Name: {{customer.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Employee</label>
+      <select formControlName="employee" class="form-select" aria-label="Default select example">
+        <option *ngFor="let employee of employees" [ngValue]="employee">ID: {{employee.id}} - Name: {{employee.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Facility</label>
+      <select formControlName="facility" class="form-select" aria-label="Default select example">
+        <option *ngFor="let facility of facilities" [ngValue]="facility">ID: {{facility.id}} - Name: {{facility.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Day Start</label>
+      <input formControlName="dayStart" type="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label >Day End</label>
+      <input formControlName="dayEnd" type="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Deposit</label>
+      <input formControlName="deposit" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Total Pay</label>
+      <input formControlName="totalPay" type="number" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

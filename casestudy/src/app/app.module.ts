@@ -16,6 +16,8 @@ import { ContractListComponent } from './component/contract/contract-list/contra
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EmployeeCreateComponent } from './component/employee/employee-create/employee-create.component';
 import { EmployeeListComponent } from './component/employee/employee-list/employee-list.component';
+import { ContractUpdateComponent } from './component/contract/contract-update/contract-update.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { EmployeeListComponent } from './component/employee/employee-list/employ
     ContractCreateComponent,
     ContractListComponent,
     EmployeeCreateComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    ContractUpdateComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

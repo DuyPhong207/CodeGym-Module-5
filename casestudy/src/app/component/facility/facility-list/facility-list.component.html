@@ -1,1 +1,35 @@
-<p>facility-list works!</p>
+<div class="container" *ngIf="facilities">
+  <h1 style="text-align: center">Facility List</h1>
+
+  <button routerLink="/facility/create" class="btn btn-primary">Create</button>
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Area</th>
+      <th scope="col">Number Of Floor</th>
+      <th scope="col">Max Of People</th>
+      <th scope="col">Cost</th>
+      <th scope="col">Rent Type</th>
+      <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let facility of facilities">
+      <th scope="row">{{facility.id}}</th>
+      <td>{{facility.name}}</td>
+      <td>{{facility.area}}</td>
+      <td>{{facility.numberOfFloor}}</td>
+      <td>{{facility.maxOfPeople}}</td>
+      <td>{{facility.cost}}</td>
+      <td>{{facility.rentType.name}}</td>
+      <td>{{facility.status}}</td>
+      <td><button [routerLink]="['/facility/edit', facility.id]" class="btn btn-info">Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

@@ -4,6 +4,10 @@ import {Division} from '../../../model/Division';
 import {Level} from '../../../model/Level';
 import {Position} from '../../../model/Position';
 import {EmployeeService} from '../../../service/employee/employee.service';
+import {DivisionService} from '../../../service/employee/division.service';
+import {PositionService} from '../../../service/employee/position.service';
+import {LevelService} from '../../../service/employee/level.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee-create',
@@ -11,34 +15,42 @@ import {EmployeeService} from '../../../service/employee/employee.service';
   styleUrls: ['./employee-create.component.css']
 })
 export class EmployeeCreateComponent implements OnInit {
-  // private regexPhone = '^\\0\\d{9,10}$';
   employeeForm: FormGroup;
-  divisions: Division[] = [
-    {id: 1, name: 'An ninh'},
-    {id: 2, name: 'Kĩ thuật'},
-    {id: 3, name: 'Marketing'}
-  ];
+  divisions: Division[] = [];
 
-  levels: Level[] = [
-    {id: 1, name: 'Cao Đẳng'},
-    {id: 2, name: 'Đại Học'},
-    {id: 3, name: 'Thạc Sĩ'}
-  ];
+  levels: Level[] = [];
 
-  positions: Position[] = [
-    {id: 1, name: 'Nhân Viên'},
-    {id: 2, name: 'Giám sát'},
-    {id: 3, name: 'Quản lý'},
-    {id: 4, name: 'Phó giám đốc'},
-    {id: 5, name: 'Giám đốc'}
-  ];
-  constructor(private employeeService: EmployeeService) {
+  positions: Position[] = [];
+  constructor(private employeeService: EmployeeService, private divisionService: DivisionService, private positionService: PositionService,
+              private levelService: LevelService, private router: Router) {
+    this.divisionService.findAll().subscribe(division => {
+      this.divisions = division;
+      this.levelService.findAll().subscribe(level => {
+        this.levels = level;
+        this.positionService.findAll().subscribe(position => {
+          this.positions = position;
+          this.getForm();
+        });
+      });
+    });
+  }
+
+  ngOnInit(): void {
+  }
+
+  addEmployee() {
+    console.log(this.employeeForm);
+    this.employeeService.addEmployee(this.employeeForm.value).subscribe(next => {
+      this.router.navigateByUrl('/employee');
+    });
+  }
+  getForm(): void {
     this.employeeForm = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      positionId: new FormControl('', [Validators.required]),
-      levelId: new FormControl('', [Validators.required]),
-      divisionId: new FormControl('', [Validators.required]),
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      id: new FormControl(),
+      name: new FormControl('', [Validators.required]),
+      position: new FormControl('', [Validators.required]),
+      level: new FormControl('', [Validators.required]),
+      division: new FormControl('', [Validators.required]),
       dateOfBirth: new FormControl('', [Validators.required]),
       idCard: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
@@ -46,19 +58,5 @@ export class EmployeeCreateComponent implements OnInit {
       salary: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required])
     });
-  }
-
-  ngOnInit(): void {
-  }
-
-  getEmployee() {
-    console.log(this.employeeForm.value);
-  }
-
-  addEmployee() {
-    console.log(this.employeeForm);
-    // if (this.employeeForm.valid) {
-    this.employeeService.addEmployee(this.employeeForm.value);
-    // }
   }
 }

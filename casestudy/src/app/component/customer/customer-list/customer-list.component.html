@@ -1,8 +1,7 @@
-<app-header></app-header>
-<div class="container">
+<div class="container" *ngIf="customers">
   <h1 style="text-align: center">Customer List</h1>
 
-  <button routerLink="/create" class="btn btn-primary">Create</button>
+  <button routerLink="/customer/create" class="btn btn-primary">Create</button>
 
   <table class="table">
     <thead class="thead-dark">
@@ -26,10 +25,8 @@
       <td>{{customer.phone}}</td>
       <td>{{customer.email}}</td>
       <td>{{customer.address}}</td>
-      <td *ngIf="customer.typeId == 1">Member</td>
-      <td *ngIf="customer.typeId == 2">Gold</td>
-      <td *ngIf="customer.typeId == 3">Platinum</td>
-      <td><button [routerLink]="['/edit', customer.id]" class="btn btn-info">Edit</button></td>
+      <td>{{customer.customerType.name}}</td>
+      <td><button [routerLink]="['/customer/edit', customer.id]" class="btn btn-info">Edit</button></td>
     </tr>
     </tbody>
   </table>

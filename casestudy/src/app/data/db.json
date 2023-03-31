@@ -1,0 +1,420 @@
+{
+  "customers": [
+    {
+      "id": 4,
+      "customerType": {
+        "id": 3,
+        "name": "Platinum"
+      },
+      "name": "Trịnh Duy Phong 2",
+      "dateOfBirth": "2023-03-10",
+      "idCard": "000000000",
+      "phone": "11111111111",
+      "email": "0945800910a@gmail.com",
+      "address": "129/2 Ngũ Hành Sơn, Đà Nẵng",
+      "typeId": {
+        "id": 2,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 5,
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "name": "Phong5",
+      "dateOfBirth": "2023-03-15",
+      "idCard": "12121212",
+      "phone": "0943381043",
+      "email": "0945800910a@gmail.com",
+      "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+    },
+    {
+      "id": 6,
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "name": "Trịnh Duy Phong 6",
+      "dateOfBirth": "2023-03-02",
+      "idCard": "12121212",
+      "phone": "0943381043",
+      "email": "0945800910a@gmail.com",
+      "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Member"
+    },
+    {
+      "id": 2,
+      "name": "Gold"
+    },
+    {
+      "id": 3,
+      "name": "Platinum"
+    },
+    {
+      "id": 4,
+      "name": "Diamond"
+    }
+  ],
+  "facilities": [
+    {
+      "id": 1,
+      "name": "Villa-01",
+      "area": 100,
+      "numberOfFloor": 3,
+      "maxOfPeople": 20,
+      "cost": 100000000,
+      "rentType": {
+        "id": 2,
+        "name": "Week"
+      },
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "name": "Villa-01",
+      "area": 120,
+      "numberOfFloor": 2,
+      "maxOfPeople": 25,
+      "cost": 120000000,
+      "rentType": {
+        "id": 1,
+        "name": "Day"
+      },
+      "status": "Available"
+    },
+    {
+      "id": 3,
+      "name": "Room-01",
+      "area": 20,
+      "numberOfFloor": 1,
+      "maxOfPeople": 3,
+      "cost": 1200000,
+      "rentType": {
+        "id": 2,
+        "name": "Week"
+      },
+      "status": "Using"
+    }
+  ],
+  "rentType": [
+    {
+      "id": 1,
+      "name": "Day"
+    },
+    {
+      "id": 2,
+      "name": "Week"
+    },
+    {
+      "id": 3,
+      "name": "Month"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Phong1",
+      "salary": "12000000",
+      "email": "1234@gmail.com",
+      "address": "Da Nang",
+      "idCard": "123456789",
+      "phone": "0123456789",
+      "position": {
+        "id": 1,
+        "name": "Nhân viên"
+      },
+      "level": {
+        "id": 1,
+        "name": "Cao Đẳng"
+      },
+      "dateOfBirth": "2001-07-20",
+      "division": {
+        "id": 1,
+        "name": "An ninh"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Phong2",
+      "salary": "12000000",
+      "email": "1234@gmail.com",
+      "address": "Da Nang",
+      "idCard": "123456789",
+      "phone": "0123456789",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "level": {
+        "id": 2,
+        "name": "Đại Học"
+      },
+      "dateOfBirth": "2001-07-20",
+      "division": {
+        "id": 2,
+        "name": "Kĩ Thuật"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Phong3",
+      "salary": "12000000",
+      "email": "1234@gmail.com",
+      "address": "Da Nang",
+      "idCard": "123456789",
+      "phone": "0123456789",
+      "position": {
+        "id": 3,
+        "name": "Quản lý"
+      },
+      "level": {
+        "id": 3,
+        "name": "Thạc sĩ"
+      },
+      "dateOfBirth": "2001-07-20",
+      "division": {
+        "id": 3,
+        "name": "Marketing"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Phong4",
+      "salary": "12000000",
+      "email": "1234@gmail.com",
+      "address": "Da Nang",
+      "idCard": "123456789",
+      "phone": "0123456789",
+      "position": {
+        "id": 1,
+        "name": "Nhân viên"
+      },
+      "level": {
+        "id": 2,
+        "name": "Đại học"
+      },
+      "dateOfBirth": "2001-07-20",
+      "division": {
+        "id": 3,
+        "name": "Marketing"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Phong5",
+      "position": {
+        "id": 4,
+        "name": "Phó giám đốc"
+      },
+      "level": {
+        "id": 3,
+        "name": "Thạc Sĩ"
+      },
+      "division": {
+        "id": 3,
+        "name": "Marketing"
+      },
+      "dateOfBirth": "2001-01-12",
+      "idCard": "10000000000",
+      "phone": "123123123",
+      "email": "1234@gmail.com",
+      "salary": "10000000000",
+      "address": "Da Nang"
+    },
+    {
+      "id": 6,
+      "name": "Phong6",
+      "position": {
+        "id": 5,
+        "name": "Giám đốc"
+      },
+      "level": {
+        "id": 3,
+        "name": "Thạc Sĩ"
+      },
+      "division": {
+        "id": 2,
+        "name": "Kĩ thuật"
+      },
+      "dateOfBirth": "2023-03-23",
+      "idCard": "123123123",
+      "phone": "123123123",
+      "email": "0945800910a@gmail.com",
+      "salary": "123123123",
+      "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+    }
+  ],
+  "divisions": [
+    {
+      "id": 1,
+      "name": "An ninh"
+    },
+    {
+      "id": 2,
+      "name": "Kĩ thuật"
+    },
+    {
+      "id": 3,
+      "name": "Marketing"
+    }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "name": "Cao Đẳng"
+    },
+    {
+      "id": 2,
+      "name": "Đại Học"
+    },
+    {
+      "id": 3,
+      "name": "Thạc Sĩ"
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "name": "Nhân Viên"
+    },
+    {
+      "id": 2,
+      "name": "Giám sát"
+    },
+    {
+      "id": 3,
+      "name": "Quản lý"
+    },
+    {
+      "id": 4,
+      "name": "Phó giám đốc"
+    },
+    {
+      "id": 5,
+      "name": "Giám đốc"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "customer": {
+        "id": 5,
+        "customerType": {
+          "id": 1,
+          "name": "Member"
+        },
+        "name": "Phong5",
+        "dateOfBirth": "2023-03-15",
+        "idCard": "12121212",
+        "phone": "0943381043",
+        "email": "0945800910a@gmail.com",
+        "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+      },
+      "employee": {
+        "id": 6,
+        "name": "Phong6",
+        "position": {
+          "id": 5,
+          "name": "Giám đốc"
+        },
+        "level": {
+          "id": 3,
+          "name": "Thạc Sĩ"
+        },
+        "division": {
+          "id": 2,
+          "name": "Kĩ thuật"
+        },
+        "dateOfBirth": "2023-03-23",
+        "idCard": "123123123",
+        "phone": "123123123",
+        "email": "0945800910a@gmail.com",
+        "salary": "123123123",
+        "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+      },
+      "facility": {
+        "id": 1,
+        "name": "Villa-01",
+        "area": 100,
+        "numberOfFloor": 3,
+        "maxOfPeople": 20,
+        "cost": 100000000,
+        "rentType": {
+          "id": 2,
+          "name": "Week"
+        },
+        "status": "Available"
+      },
+      "dayStart": "2023-03-02",
+      "dayEnd": "2023-03-10",
+      "deposit": 10000000,
+      "totalPay": 20000000
+    },
+    {
+      "id": 2,
+      "customer": {
+        "id": 4,
+        "customerType": {
+          "id": 3,
+          "name": "Platinum"
+        },
+        "name": "Trịnh Duy Phong 2",
+        "dateOfBirth": "2023-03-10",
+        "idCard": "000000000",
+        "phone": "11111111111",
+        "email": "0945800910a@gmail.com",
+        "address": "129/2 Ngũ Hành Sơn, Đà Nẵng",
+        "typeId": {
+          "id": 2,
+          "name": "Gold"
+        }
+      },
+      "employee": {
+        "id": 4,
+        "name": "Phong4",
+        "salary": "12000000",
+        "email": "1234@gmail.com",
+        "address": "Da Nang",
+        "idCard": "123456789",
+        "phone": "0123456789",
+        "position": {
+          "id": 1,
+          "name": "Nhân viên"
+        },
+        "level": {
+          "id": 2,
+          "name": "Đại học"
+        },
+        "dateOfBirth": "2001-07-20",
+        "division": {
+          "id": 3,
+          "name": "Marketing"
+        }
+      },
+      "facility": {
+        "id": 1,
+        "name": "Villa-01",
+        "area": 100,
+        "numberOfFloor": 3,
+        "maxOfPeople": 20,
+        "cost": 100000000,
+        "rentType": {
+          "id": 2,
+          "name": "Week"
+        },
+        "status": "Available"
+      },
+      "dayStart": "2023-03-10",
+      "dayEnd": "2023-03-14",
+      "deposit": 20000000,
+      "totalPay": 50000000
+    }
+  ]
+}

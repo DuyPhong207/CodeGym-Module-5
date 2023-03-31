@@ -10,7 +10,10 @@ import {CustomerService} from '../../../service/customer/customer.service';
 export class CustomerListComponent implements OnInit {
   customers: Customer[] = [];
   constructor(private customerService: CustomerService) {
-    this.customers = customerService.findAll();
+    this.customerService.findAll().subscribe(next => {
+      console.log(next);
+      this.customers = next;
+    });
   }
 
   ngOnInit(): void {

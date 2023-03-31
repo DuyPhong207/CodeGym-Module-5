@@ -10,7 +10,11 @@ import {Employee} from '../../../model/Employee';
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
   constructor(private employeeService: EmployeeService) {
-    this.employees = employeeService.findAll();
+    this.employeeService.findAll().subscribe(next => {
+      this.employees = next;
+    }, error => {
+      console.log(error);
+    });
   }
 
   ngOnInit(): void {

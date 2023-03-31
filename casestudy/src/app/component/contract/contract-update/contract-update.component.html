@@ -1,0 +1,67 @@
+<div class="container" *ngIf="contract">
+  <h1 style="text-align: center">Form Create Customer</h1>
+  <form [formGroup]="editContractForm" (ngSubmit)="editContract()">
+    <div class="form-group">
+      <input type="hidden" formControlName="id" class="form-control">
+    </div>
+    <div class="form-group">
+      <label >Customer</label>
+      <select formControlName="customer" class="form-select" aria-label="Default select example" [compareWith]="compareFn">
+        <option *ngFor="let customer of customers" [ngValue]="customer">ID: {{customer.id}} - Name: {{customer.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Employee</label>
+      <select formControlName="employee" class="form-select" aria-label="Default select example" [compareWith]="compareFn">
+        <option *ngFor="let employee of employees" [ngValue]="employee">ID: {{employee.id}} - Name: {{employee.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Facility</label>
+      <select formControlName="facility" class="form-select" aria-label="Default select example" [compareWith]="compareFn">
+        <option *ngFor="let facility of facilities" [ngValue]="facility">ID: {{facility.id}} - Name: {{facility.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Day Start</label>
+      <input formControlName="dayStart" type="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label >Day End</label>
+      <input formControlName="dayEnd" type="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Deposit</label>
+      <input formControlName="deposit" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Total Pay</label>
+      <input formControlName="totalPay" type="number" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <!-- Button trigger modal -->
+    <button style="margin-left: 16px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Delete
+    </button>
+  </form>
+</div>
+
+<!--Modal delete customer-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="contract">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete contract</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Customer ID: {{contract.id}}</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="deleteContractById()" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+

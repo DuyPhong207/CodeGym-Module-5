@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerType} from '../../../model/CustomerType';
 import {CustomerService} from '../../../service/customer/customer.service';
 import {Router} from '@angular/router';
+import {CustomerTypeService} from '../../../service/customer/customer-type.service';
 
 @Component({
   selector: 'app-customer-create',
@@ -12,19 +13,24 @@ import {Router} from '@angular/router';
 export class CustomerCreateComponent implements OnInit {
   @Output()
   evenEmmit = new EventEmitter();
-  types: CustomerType[] = [{id: 1, name: 'Member'}, {id: 2, name: 'Gold'}, {id: 3, name: 'Platinum'}];
   customerForm: FormGroup;
-
-  constructor(private customerService: CustomerService, private router: Router) {
+  customerTypes: CustomerType[] = [];
+  constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService, private router: Router) {
     this.customerForm = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      typeId: new FormControl('', [Validators.required]),
+      id: new FormControl(),
+      customerType: new FormControl(),
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       dateOfBirth: new FormControl('', [Validators.required]),
       idCard: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required])
+    });
+
+    this.customerTypeService.findAll().subscribe(next => {
+      console.log(next);
+      this.customerTypes = next;
     });
   }
 
@@ -34,8 +40,11 @@ export class CustomerCreateComponent implements OnInit {
   addCustomer() {
     console.log(this.customerForm);
     if (this.customerForm.valid) {
-      this.customerService.addCustomer(this.customerForm.value);
-      this.router.navigateByUrl('');
+      this.customerService.addCustomer(this.customerForm.value).subscribe(next => {
+        this.router.navigateByUrl('/customer');
+      }, error => {
+        console.log(error);
+      });
     }
   }
 }

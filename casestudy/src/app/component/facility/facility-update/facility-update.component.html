@@ -1,1 +1,66 @@
-<p>facility-update works!</p>
+<div class="container">
+  <h1 style="text-align: center">Form Create Facility</h1>
+  <form [formGroup]="editFacilityForm" (ngSubmit)="editFacility()" *ngIf="facility">
+    <div class="form-group">
+      <input type="hidden" formControlName="id" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label >Facility Name</label>
+      <input formControlName="name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label >Area</label>
+      <input formControlName="area" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Number Of Floor</label>
+      <input formControlName="numberOfFloor" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Max Of People</label>
+      <input formControlName="maxOfPeople" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Cost</label>
+      <input formControlName="cost" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label >Rent Type</label>
+      <select formControlName="rentType" class="form-select" aria-label="Default select example" [compareWith]="compareFn">
+        <option *ngFor="let rentType of rentTypes" [ngValue]="rentType">{{rentType.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <input formControlName="status" type="text" class="form-control">
+    </div>
+    <div style="margin-top: 16px" class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button style="margin-left: 16px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+
+<!--Modal delete customer-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="facility">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm to delete facility</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Facility ID: {{facility.id}}</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="deleteFacilityById()" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
