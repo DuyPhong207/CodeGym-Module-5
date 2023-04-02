@@ -2,16 +2,6 @@
   "products": [
     {
       "id": 1,
-      "name": "Iphone 12",
-      "price": "12000000",
-      "category": {
-        "id": 3,
-        "name": "Điện thoại"
-      },
-      "desc": "Black, 512Gb"
-    },
-    {
-      "id": 2,
       "name": "Iphone 11",
       "price": "12000000",
       "category": {

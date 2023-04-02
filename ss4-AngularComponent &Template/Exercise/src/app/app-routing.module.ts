@@ -10,9 +10,9 @@ import {CreateComponent} from "./component/product/create/create.component";
 const routes: Routes = [
   {path: 'vocabulary', component: VocabularyComponent},
   {path: 'vocabulary/detail/:id', component: DetailComponent},
-  {path: 'product', component: ListComponent},
-  {path: 'product/create', component: CreateComponent},
-  {path: 'product/edit/:id', component: UpdateComponent}
+  // {path: 'product', component: ListComponent},
+  // {path: 'product/create', component: CreateComponent},
+  // {path: 'product/edit/:id', component: UpdateComponent}
 ];
 
 @NgModule({

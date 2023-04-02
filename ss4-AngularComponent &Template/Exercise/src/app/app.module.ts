@@ -15,6 +15,7 @@ import { UpdateComponent } from './component/product/update/update.component';
 import { HttpClientModule} from "@angular/common/http";
 import { CreateComponent } from './component/product/create/create.component';
 import { RatingBarComponent } from './component/rating-bar/rating-bar.component';
+import {ProductModule} from "./component/product/product.module";
 
 @NgModule({
   declarations: [
@@ -25,16 +26,14 @@ import { RatingBarComponent } from './component/rating-bar/rating-bar.component'
     CountDownComponent,
     VocabularyComponent,
     DetailComponent,
-    ListComponent,
-    UpdateComponent,
-    CreateComponent,
     RatingBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]
