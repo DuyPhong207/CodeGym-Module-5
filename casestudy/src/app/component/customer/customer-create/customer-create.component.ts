@@ -12,7 +12,6 @@ import {CustomerTypeService} from '../../../service/customer/customer-type.servi
 })
 export class CustomerCreateComponent implements OnInit {
   @Output()
-  evenEmmit = new EventEmitter();
   customerForm: FormGroup;
   customerTypes: CustomerType[] = [];
   constructor(private customerService: CustomerService,

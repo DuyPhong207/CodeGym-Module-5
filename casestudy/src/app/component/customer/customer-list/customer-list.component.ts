@@ -18,4 +18,10 @@ export class CustomerListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  searchByName(value: string) {
+    this.customerService.findByName(value).subscribe(next => {
+      this.customers = next;
+    });
+  }
 }

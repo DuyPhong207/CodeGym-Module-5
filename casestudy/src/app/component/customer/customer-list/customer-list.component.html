@@ -1,8 +1,13 @@
 <div class="container" *ngIf="customers">
   <h1 style="text-align: center">Customer List</h1>
-
-  <button routerLink="/customer/create" class="btn btn-primary">Create</button>
-
+  <div>
+<!--    form search    -->
+    <form style="width: 400px; float: right" class="d-flex" (ngSubmit)="searchByName(search.value)">
+      <input class="form-control me-2" type="search" #search placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <button routerLink="/customer/create" class="btn btn-primary">Create</button>
+  </div>
   <table class="table">
     <thead class="thead-dark">
     <tr>

@@ -26,4 +26,8 @@ export class CustomerService {
   findById(id: any): Observable<Customer> {
     return this.httpClient.get<Customer>('http://localhost:3000/customers/' + id);
   }
+
+  findByName(name: any): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?name_like=' + name);
+  }
 }

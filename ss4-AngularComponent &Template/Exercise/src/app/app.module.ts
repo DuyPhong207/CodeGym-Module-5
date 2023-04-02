@@ -14,6 +14,7 @@ import { ListComponent } from './component/product/list/list.component';
 import { UpdateComponent } from './component/product/update/update.component';
 import { HttpClientModule} from "@angular/common/http";
 import { CreateComponent } from './component/product/create/create.component';
+import { RatingBarComponent } from './component/rating-bar/rating-bar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CreateComponent } from './component/product/create/create.component';
     ListComponent,
     UpdateComponent,
     CreateComponent,
+    RatingBarComponent,
   ],
   imports: [
     BrowserModule,
