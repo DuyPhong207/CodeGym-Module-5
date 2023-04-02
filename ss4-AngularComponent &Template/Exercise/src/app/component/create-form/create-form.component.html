@@ -1,3 +1,4 @@
+<div class="container">
 <form [formGroup]="createForm" (ngSubmit)="save()">
   <p>Email:</p>
   <input type="text" formControlName="email">
@@ -12,8 +13,10 @@
   <br>
   <p>Confirm Password:</p>
   <input type="password" formControlName="confirmPassword">
-<!--  <span style="color: red" *ngIf="createForm.controls.confirmPassword.hasError('checkConfirmPass')-->
-<!--    &&createForm.controls.confirmPassword.dirty">Không trùng với password</span><br>-->
+  <span style="color: red" *ngIf="createForm.controls.email.hasError('required')
+    && createForm.controls.confirmPassword.dirty")>Vui lòng nhập email</span>
+  <span style="color: red" *ngIf="createForm.controls.confirmPassword && (createForm.controls.confirmPassword.touched || createForm.controls.confirmPassword.touched)
+    &&createForm.controls.confirmPassword.dirty">Không trùng với password</span><br>
   <p>Age:</p>
   <input type="date" formControlName="age">
   <span style="color: red" *ngIf="createForm.controls.age.hasError('required')
@@ -29,3 +32,4 @@
     &&createForm.controls.phone.dirty">Số điện thoại không đúng định dạng</span><br>
   <input type="submit" value="create"><br>
 </form>
+</div>

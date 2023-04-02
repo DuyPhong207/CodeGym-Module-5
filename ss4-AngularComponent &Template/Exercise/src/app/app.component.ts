@@ -7,7 +7,6 @@ import {Component, EventEmitter} from '@angular/core';
 })
 export class AppComponent {
   evenEmmit = new EventEmitter();
-
   title = 'Exercise';
 
   getRate(value: string) {

@@ -22,9 +22,9 @@ export class CreateFormComponent implements OnInit {
     }, {validators:this.checkConfirmPass})
   }
 
-  checkConfirmPass(control: AbstractControl): any {
-      let confirmPassword = control.value;
-      let password = this.createForm.controls.confirmPassword.value;
+  checkConfirmPass(control: any): any {
+      let confirmPassword = control.controls.password.value;
+      let password = control.controls.confirmPassword.value;
       return confirmPassword === password ? null : {notSame: true}
   }
 
