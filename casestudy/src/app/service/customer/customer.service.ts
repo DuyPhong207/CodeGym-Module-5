@@ -30,12 +30,20 @@ export class CustomerService {
     return this.httpClient.get<Customer[]>('http://localhost:3000/customers?name_like=' + name);
   }
   findByTypeName(typeName: string): Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?customerType.name=' + typeName);
+    if (typeName === 'none') {
+      return this.findAll();
+    } else {
+      return this.httpClient.get<Customer[]>('http://localhost:3000/customers?customerType.name=' + typeName);
+    }
   }
   findByYearOfBirth(year: string): Observable<Customer[]> {
     const fromDate: string = year + '-01-01';
     const endDate: string = year + '-12-31';
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?dateOfBirth_gte=' + fromDate + '&dateOfBirth_lte=' +
-      endDate);
+    if (year === 'none') {
+      return this.findAll();
+    } else {
+      return this.httpClient.get<Customer[]>('http://localhost:3000/customers?dateOfBirth_gte=' + fromDate + '&dateOfBirth_lte=' +
+        endDate);
+    }
   }
 }
