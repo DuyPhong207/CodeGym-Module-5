@@ -2,8 +2,16 @@
   <h1 style="text-align: center">Customer List</h1>
   <div>
 <!--    form search    -->
-    <form style="width: 400px; float: right" class="d-flex" (ngSubmit)="searchByName(search.value)">
-      <input class="form-control me-2" type="search" #search placeholder="Search" aria-label="Search">
+    <form style="width: 600px; float: right" class="d-flex" (ngSubmit)="searchCustomer(search.value, typeName.value, year.value)">
+      <select style="width: 400px" #year class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option value="none" selected>Year Of Birth</option>
+        <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+      </select>
+      <select style="width: 400px" #typeName class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option value="none" selected>Type of customer</option>
+        <option *ngFor="let customerType of customerTypes" value="{{customerType.name}}">{{customerType.name}}</option>
+      </select>
+      <input class="form-control me-2" type="search" #search placeholder="Enter name" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <button routerLink="/customer/create" class="btn btn-primary">Create</button>
@@ -11,7 +19,7 @@
   <table class="table">
     <thead class="thead-dark">
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Date Of Birth</th>
       <th scope="col">Identification Card</th>
@@ -22,10 +30,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let customer of customers">
-      <th scope="row">{{customer.id}}</th>
+    <tr *ngFor="let customer of customers; index as i">
+      <th scope="row">{{i + 1}}</th>
       <td>{{customer.name}}</td>
-      <td>{{customer.dateOfBirth}}</td>
+      <td>{{customer.dateOfBirth | date:"dd-MM-yyyy"}}</td>
       <td>{{customer.idCard}}</td>
       <td>{{customer.phone}}</td>
       <td>{{customer.email}}</td>

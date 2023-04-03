@@ -42,6 +42,45 @@
       "phone": "0943381043",
       "email": "0945800910a@gmail.com",
       "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+    },
+    {
+      "id": 7,
+      "customerType": {
+        "id": 3,
+        "name": "Platinum"
+      },
+      "name": "Anh",
+      "dateOfBirth": "2023-04-19",
+      "idCard": "1212121212",
+      "phone": "0943381043",
+      "email": "0945800910a@gmail.com",
+      "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+    },
+    {
+      "id": 8,
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "name": "Cường",
+      "dateOfBirth": "2019-06-12",
+      "idCard": "123456779",
+      "phone": "0943381043",
+      "email": "0945800910a@gmail.com",
+      "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
+    },
+    {
+      "id": 9,
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "name": "Hoàng",
+      "dateOfBirth": "2015-03-05",
+      "idCard": "123123123",
+      "phone": "0943381043",
+      "email": "0945800910a@gmail.com",
+      "address": "129/2 Ngũ Hành Sơn, Đà Nẵng"
     }
   ],
   "customerType": [
