@@ -38,45 +38,4 @@ export class CustomerService {
     return this.httpClient.get<Customer[]>('http://localhost:3000/customers?dateOfBirth_gte=' + fromDate + '&dateOfBirth_lte=' +
       endDate);
   }
-  findByNameAndType(name: string, typeName: any): Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?name_like=' + name + '&customerType.name=' + typeName);
-  }
-  findByNameAndYear(name: string, year: string): Observable<Customer[]> {
-    const fromDate: string = year + '-01-01';
-    const endDate: string = year + '-12-31';
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?name_like=' + name + '&= dateOfBirth_gte=' +
-      fromDate + '&dateOfBirth_lte=' + endDate);
-  }
-  findByTypeAndTypeYear(typeName: string, year: string): Observable<Customer[]> {
-    const fromDate: string = year + '-01-01';
-    const endDate: string = year + '-12-31';
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?customerType.name=' + typeName + '&= dateOfBirth_gte=' +
-      fromDate + '&dateOfBirth_lte=' + endDate);
-  }
-  findByNameAndTypeAndYear(name: string, typeName: string, year: string): Observable<Customer[]> {
-    const fromDate: string = year + '-01-01';
-    const endDate: string = year + '-12-31';
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?name_like=' + name + 'customerType.name=' +
-      typeName + '&= dateOfBirth_gte=' + fromDate + '&dateOfBirth_lte=' + endDate);
-  }
-  findCustomer(name: string, typeName: string, year: string): Observable<Customer[]> {
-    console.log(name);
-    console.log(typeName);
-    console.log(year);
-    if (name === '') {
-      if (typeName === 'none') {
-        if (year === 'none') {
-          return this.findByName(name);
-        } else {
-          return this.findByNameAndYear(name, year);
-        }
-      } else {
-        if (year === 'none') {
-          return this.findByNameAndType(name, typeName);
-        } else {
-          return this.findByNameAndTypeAndYear(name, typeName, year);
-        }
-      }
-    }
-  }
 }

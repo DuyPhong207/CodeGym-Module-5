@@ -2,12 +2,12 @@
   <h1 style="text-align: center">Customer List</h1>
   <div>
 <!--    form search    -->
-    <form style="width: 600px; float: right" class="d-flex" (ngSubmit)="searchCustomer(search.value, typeName.value, year.value)">
-      <select style="width: 400px" #year class="form-select form-select-sm" aria-label=".form-select-sm example">
+    <form style="width: 600px; float: right" class="d-flex" (ngSubmit)="searchByName(search.value)">
+      <select (change)="searchByYear(year.value)" style="width: 400px" #year class="form-select form-select-sm" aria-label=".form-select-sm example">
         <option value="none" selected>Year Of Birth</option>
         <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
       </select>
-      <select style="width: 400px" #typeName class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <select (change)="searchByTypeName(typeName.value)" style="width: 400px" #typeName class="form-select form-select-sm" aria-label=".form-select-sm example">
         <option value="none" selected>Type of customer</option>
         <option *ngFor="let customerType of customerTypes" value="{{customerType.name}}">{{customerType.name}}</option>
       </select>

@@ -31,14 +31,6 @@ export class CustomerListComponent implements OnInit {
       this.years.push(i.toString());
     }
   }
-
-  searchByNameAndType(name: string, typeName: string) {
-    console.log(name + typeName);
-    this.customerService.findByNameAndType(name, typeName).subscribe(next => {
-      this.customers = next;
-    });
-  }
-
   searchByYear(year: string) {
     console.log(year);
     this.customerService.findByYearOfBirth(year).subscribe(next => {
@@ -46,8 +38,15 @@ export class CustomerListComponent implements OnInit {
       this.customers = next;
     });
   }
-  searchCustomer(name: string, typeName: string, year: string) {
-    this.customerService.findCustomer(name, typeName, year).subscribe(next => {
+
+  searchByTypeName(typeName: string) {
+    this.customerService.findByTypeName(typeName).subscribe(next => {
+      this.customers = next;
+    });
+  }
+
+  searchByName(name: string) {
+    this.customerService.findByName(name).subscribe(next => {
       this.customers = next;
     });
   }
